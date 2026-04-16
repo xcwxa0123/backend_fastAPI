@@ -5,14 +5,14 @@ app = FastAPI()
 clients = set()
 msghistory = list([])
 currMember = {}
-@app.get('/implapi/membernum')
+@app.get('/chatapi/membernum')
 def read_root():
     return { 'clientsnum': len(clients) }
 
 
 # router = APIRouter(prefix="/implapi")
 # @router.websocket('/ws')
-@app.websocket('/implapi/ws')
+@app.websocket('/chatapi/ws')
 async def websocket_savews(websocket: WebSocket):
     print('前端连接了捏=================>')
     await websocket.accept()
